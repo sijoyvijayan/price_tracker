@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="page-header">
+        <h1>Edit Store</h1>
+    </div>
+
+    <div class="form-setter">
+        <form method="post">
+            <div class="form-group">
+                <label for="name">Store Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Store Name" value="{{ store.name }}">
+            </div>
+            <div class="form-group">
+                <label for="url_prefix">Store URL Prefix</label>
+                <input type="text" class="form-control" id="url_prefix" name="url_prefix" placeholder="Store URL Prefix" value="{{ store.url_prefix }}" aria-describedby="storeURLPrefixHelp">
+                <span id="storeURLPrefixHelp" class="help-block">What characters do URL of all items in this store start with?</span>
+            </div>
+            <div class="form-group">
+                <label for="item_price_tag">Tag Name For Item Price</label>
+                <input type="text" class="form-control" id="item_price_tag" name="item_price_tag" placeholder="span" value="{{ store.tag_name }}" aria-describedby="storeItemPriceTagHelp">
+                <span id="storeItemPriceTagHelp" class="help-block">What is the html tag for item price?</span>
+            </div>
+            <div class="form-group">
+                <label for="item_price_query">Query For Retrieving Item Price</label>
+                <input type="text" class="form-control" id="item_price_query" name="item_price_query" placeholder='{"id": "price-now"}' value='{{ store.query | tojson }}' aria-describedby="storeItemPriceQueryHelp">
+                <span id="storeItemPriceQueryHelp" class="help-block">What is the query for retrieving item price?</span>
+            </div>
+            <div class="form-group">
+                <label for="item_name_tag">Tag Name For Item Name</label>
+                <input type="text" class="form-control" id="item_name_tag" name="item_name_tag" placeholder="span" value="{{ store.item_name_tag }}" aria-describedby="storeItemNameTagHelp">
+                <span id="storeItemNameTagHelp" class="help-block">What is the html tag for item name?</span>
+            </div>
+            <div class="form-group">
+                <label for="item_name_query">Query For Retrieving Item Name</label>
+                <input type="text" class="form-control" id="item_name_query" name="item_name_query" placeholder='{"id": "product-name"}' value='{{ store.item_name_query | tojson }}' aria-describedby="storeItemNameQueryHelp">
+                <span id="storeItemNameQueryHelp" class="help-block">What is the query for retrieving item name?</span>
+            </div>
+            <button type="submit" class="btn btn-warning">Update</button>
+        </form>
+    </div>
+
+{% endblock %}
+
